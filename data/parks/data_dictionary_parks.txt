@@ -1,0 +1,17 @@
+Prop_ID: A unique identifier for the property. The first character is a abbreviation of the borough,
+followed by a 3 digit number. Anything after the first 4 characters represents a subproperty.
+Boroughs:
+X - Bronx
+B - Brooklyn
+M - Manhattan
+Q - Queens
+R - Staten Island
+
+
+Name: Name of the property
+
+
+Location: Text location
+
+
+Zip: Zip code of property

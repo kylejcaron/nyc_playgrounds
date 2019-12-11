@@ -1,0 +1,28 @@
+Prop_ID: A unique identifier for the property. The first character is a abbreviation of the borough,
+followed by a 3 digit number. Anything after the first 4 characters represents a subproperty.
+Boroughs:
+X - Bronx
+B - Brooklyn
+M - Manhattan
+Q - Queens
+R - Staten Island
+See http://www.nycgovparks.org/bigapps/DPR_Parks_001.xml or http://www.nycgovparks.org/bigapps/DPR_Parks_001.json
+
+
+Name: Name of the property
+
+
+Location: Text location
+
+
+Accessible: (Y)es or (N)o - wheelchair accessible
+
+
+Level: Accessibility level if playground is accessible:
+Level 1: Playgrounds for All Children
+Level 2: Accessible Playgrounds with Ramped Play Equipment and Universally Accessible Swings
+Level 3: Accessible Playgrounds with Universally Accessible Swings
+Level 4: Accessible Playgrounds with Transfer Platforms and Ground Level Play Features
+
+
+Adaptive_Swing: Whether playground has a JennSwing: a full-body positioning support swing.
