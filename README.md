@@ -10,7 +10,9 @@ http://htmlpreview.github.io/?https://github.com/kylejcaron/nyc_playgrounds/blob
 
 # Summary
 
-The goal of this project is to identify areas in NYC with low playground availability and offer recommendations for intervention.
+The goal of this project is to identify areas in NYC with low playground availability and offer recommendations for intervention. 
+
+By looking at a good model's predicted number of playgrounds and comparing it to the actual number of playgrounds per zip code, we can easily identify underserved areas of NYC. For instance if a *good* model predicts that some zipcode should have 10 playgrounds, but it only has 2 playgrounds in real life, that zip code is probably in need of some playgrounds. This is all dependent on having a good model, of course.
 
 I want to clear up some definitions before you go through this. 
 
@@ -25,7 +27,7 @@ This project used the following datasets:
   
 NYCs open data is notoriously messy. In this case, many of the Addresses for NYC Parks were missing Zip Codes, however plenty had street addresses. I used GeoPy, a free (free-ish) Geocoding library to search for missing Zip Codes through their street addresses; while it wasn't perfect, it got the job done. 
 
-These Parks were merged with the Playgrounds dataset through Property IDs, so each Playground was associated with a Zip Code. Finally, the Parks/Playgrounds dataset was aggregated so that the dataset was now the number of Playgrounds in each Zip Code.
+These Parks were merged with the Playgrounds dataset through Property IDs, so each Playground was associated with a Zip Code. Then, the Parks/Playgrounds dataset was aggregated so that the dataset was now the number of Playgrounds in each Zip Code.
 
 Finally, after combining all three datasets by Zip Code, I dropped all features from the Parks/Playgrounds datasets (apart from the target variable, __Number of Playgrounds__) to avoid __data leakage__.
 
@@ -33,9 +35,9 @@ Finally, after combining all three datasets by Zip Code, I dropped all features 
 
 The Tax Return dataset presented an interesting challenge in that there were roughly 200 different features, and a lot of multicollinearity. 
 
-For most variables, there were two associated features, for example, `Total Income Amount` (The _Amount_ variable, specified with an `A`) and `Number of Returns with Total Income` (the _Number of Returns_ variable, specified with an `N`). These feature pairs are obviously collinear, so I chose to do a logical dimensionality reduction: Normalizing the `Amount` by the `Number of Returns` for each item. This turned the feature pair into __Average Amount per Eligible return__. *To be clear, I decided to fit a model with and without this dimensionality reduction and achieved similar results.*
+For most variables, there were two associated features, for example, `Total Income Amount` (The _Amount_ variable, specified with an `A`) and `Number of Returns with Total Income` (the _Number of Returns_ variable, specified with an `N`). These feature pairs are obviously collinear, so I chose to do a logical dimensionality reduction: Normalizing the `Amount` by the `Number of Returns` for each item. This turned the feature pair into __Average Amount per Eligible return__. *To be clear, I decided to fit a model with and without this dimensionality reduction and achieved similar results, however they were better moderately with this dimensionality reduction.*
 
-After this Dimensionality reduction, I was still left with 100 features. A heatmap is shown below:
+After this dimensionality reduction, I was still left with 100 features. A heatmap is shown below:
 
 ![heatmap](data/img/heatmap.png)
 
@@ -57,11 +59,11 @@ Models were evaluated with 10-fold Cross Validation, and then finally validated 
 
 In this preliminary model fitting stage, I found that Gradient Boosting Regression, Random Forest Regression, and Elastic Net Regression performed the best. Despite really strong predictive power from the Ensemble Learning methods, I favored Elastic Net Regression because it is slightly more interpretable. 
 
-The residual plot from the initial Elastic Net model is below:
+The __residual plot__ from the initial Elastic Net model is below. 
 
 ![residuals1](data/img/residuals1.png)
 
-One thing to note is that there's a lot of heteroscedasticity in the residuals plot above. __Even more interestingly, there's a significantly negative residual that has far less playgrounds than what the Model predicts.__
+One thing to note is that there's a lot of heteroscedasticity in the residuals plot above. __Even more interestingly, there's a significantly negative residual that has far less playgrounds than what the Model predicts.__ That is exactly what I was hoping to identify with this investigation. This zip code is expected to have far more playgrounds than what it actually has in real life; it's an underserved community. 
 
 Before exploring that further, I went through all 20 features and performed feature transforms (such as Square Root and Log Transforms) to reduce the heteroscedasticity of the model. While there was still some slight heteroscedasticity, it was certainly improved. 
 
