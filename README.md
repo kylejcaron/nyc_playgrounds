@@ -35,7 +35,9 @@ Finally, after combining all three datasets by Zip Code, I dropped all features 
 
 The Tax Return dataset presented an interesting challenge in that there were roughly 200 different features, and a lot of multicollinearity. 
 
-For most variables, there were two associated features, for example, `Total Income Amount` (The _Amount_ variable, specified with an `A`) and `Number of Returns with Total Income` (the _Number of Returns_ variable, specified with an `N`). These feature pairs are obviously collinear, so I chose to do a logical dimensionality reduction: Normalizing the `Amount` by the `Number of Returns` for each item. This turned the feature pair into __Average Amount per Eligible return__. *To be clear, I decided to fit a model with and without this dimensionality reduction and achieved similar results, however they were better moderately with this dimensionality reduction.*
+For most variables, there were two associated features, for example, `Total Income Amount` (The _Amount_ variable, specified with an `A`) and `Number of Returns with Total Income` (the _Number of Returns_ variable, specified with an `N`). These feature pairs are obviously collinear, so I chose to do a logical dimensionality reduction: Normalizing the `Amount` by the `Number of Returns` for each item. This turned the feature pair into __Average Amount per Eligible return__. 
+
+*To be clear, I decided to fit a model with and without this dimensionality reduction and achieved similar results, however they were moderately better  with this dimensionality reduction.*
 
 After this dimensionality reduction, I was still left with 100 features. A heatmap is shown below:
 
