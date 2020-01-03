@@ -81,7 +81,7 @@ After feature transforms, I tuned the `r` parameter of the Elastic Net model via
 
 The best `r` parameter was found to be `r = 0.01`.
 
-The final Elastic Net model with the transformed features and tuned parameter $r$, resulted in a __10-fold Cross Validated Mean Absolute Error of 2.39__. As a final validation of the model, I tested it on a holdout set which resulted in a __Mean Absolute Error of 2.17__ and an __<img src="https://render.githubusercontent.com/render/math?math=R^{2}"> of 0.72.__
+The final Elastic Net model with the transformed features and tuned parameter `r`, resulted in a __10-fold Cross Validated Mean Absolute Error of 2.39__. As a final validation of the model, I tested it on a holdout set which resulted in a __Mean Absolute Error of 2.17__ and an __<img src="https://render.githubusercontent.com/render/math?math=R^{2}"> of 0.72.__
 
 # Interpretation and Key Findings
 
