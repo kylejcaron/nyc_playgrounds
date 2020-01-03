@@ -12,7 +12,7 @@ http://htmlpreview.github.io/?https://github.com/kylejcaron/nyc_playgrounds/blob
 
 The goal of this project is to identify areas in NYC with low playground availability and offer recommendations for intervention. 
 
-By looking at a good model's predicted number of playgrounds and comparing it to the actual number of playgrounds per zip code, we can easily identify underserved areas of NYC. For instance if a *good* model predicts that some zipcode should have 10 playgrounds, but it only has 2 playgrounds in real life, that zip code is probably in need of some playgrounds. This is all dependent on having a good model, of course.
+By looking at a good model's predicted number of playgrounds and comparing it to the actual number of playgrounds per zip code, we can easily identify underserved areas of NYC. For instance if a *good* model predicts that some zip code should have 10 playgrounds, but it only has 2 playgrounds in real life, that zip code is probably in need of some playgrounds. This is all dependent on having a good model, of course.
 
 I want to clear up some definitions before you go through this. 
 
