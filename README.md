@@ -57,7 +57,7 @@ Several different models were evaluated:
  - Random Forest Regression
  - Gradient Boosting Regression
  
-Models were evaluated with 10-fold Cross Validation, and then finally validated on a held out test set. The error metric of choice was Mean Absolute Error (__MAE__) since it is easily interpretable and since the magnitude of the target variable was so low, and the distribution was relatively narrow, I wasn't too concerned by outliers either. I decided to look at $R^2$ as well, since a non-technical audience would be more familiar with it than MAE.
+Models were evaluated with 10-fold Cross Validation, and then finally validated on a held out test set. The error metric of choice was Mean Absolute Error (__MAE__) since it is easily interpretable and since the magnitude of the target variable was so low, and the distribution was relatively narrow, I wasn't too concerned by outliers either. I decided to look at <img src="https://render.githubusercontent.com/render/math?math=R^{2}"> as well, since a non-technical audience would be more familiar with it than MAE.
 
 In this preliminary model fitting stage, I found that Gradient Boosting Regression, Random Forest Regression, and Elastic Net Regression performed the best. Despite really strong predictive power from the Ensemble Learning methods, I favored Elastic Net Regression because it is slightly more interpretable. 
 
@@ -75,13 +75,13 @@ Before exploring that further, I went through all 20 features and performed feat
 
 ### Parameter Tuning
 
-After feature transforms, I tuned the $r$ parameter of the Elastic Net model via Cross-Validated MAE evaluation over a range of values for $r$. 
+After feature transforms, I tuned the `r` parameter of the Elastic Net model via Cross-Validated MAE evaluation over a range of values for `r`. 
 
 ![tuning](data/img/tuning.png)
 
-The best $r$ parameter was found to be $r = 0.01$.
+The best `r` parameter was found to be `r = 0.01`.
 
-The final Elastic Net model with the transformed features and tuned parameter $r$, resulted in a __10-fold Cross Validated Mean Absolute Error of 2.39__. As a final validation of the model, I tested it on a holdout set which resulted in a __Mean Absolute Error of 2.17__ and an __$R^2$ of 0.72.__
+The final Elastic Net model with the transformed features and tuned parameter $r$, resulted in a __10-fold Cross Validated Mean Absolute Error of 2.39__. As a final validation of the model, I tested it on a holdout set which resulted in a __Mean Absolute Error of 2.17__ and an __<img src="https://render.githubusercontent.com/render/math?math=R^{2}"> of 0.72.__
 
 # Interpretation and Key Findings
 
