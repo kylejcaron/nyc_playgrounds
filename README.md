@@ -75,13 +75,13 @@ Before exploring that further, I went through all 20 features and performed feat
 
 ### Parameter Tuning
 
-After feature transforms, I tuned the `r` parameter of the Elastic Net model via Cross-Validated MAE evaluation over a range of values for `r`. 
+After feature transforms, I tuned the `a` parameter (the x-axis) and the `r` parameter of the Elastic Net model via Cross-Validated MAE evaluation over a range of values for `a` and `r`. 
 
 ![tuning](data/img/tuning.png)
 
-The best `r` parameter was found to be `r = 0.01`.
+The best `a` parameter was found to be `a=0.01` and the best `r` parameter was found to be `r = 0.01`.
 
-The final Elastic Net model with the transformed features and tuned parameter `r`, resulted in a __10-fold Cross Validated Mean Absolute Error of 2.39__. As a final validation of the model, I tested it on a holdout set which resulted in a __Mean Absolute Error of 2.17__ and an __<img src="https://render.githubusercontent.com/render/math?math=R^{2}"> of 0.72.__
+The final Elastic Net model with the transformed features and tuned parameter `r`, resulted in a __10-fold Cross Validated Mean Absolute Error of 2.32__. As a final validation of the model, I tested it on a holdout set which resulted in a __Mean Absolute Error of 2.13__ and an __<img src="https://render.githubusercontent.com/render/math?math=R^{2}"> of 0.73.__
 
 # Interpretation and Key Findings
 
